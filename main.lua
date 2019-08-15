@@ -9,7 +9,7 @@ function love.load()
   zombies = {}
   bullets = {}
 
-  fnt = love.graphics.newFont(40)
+  fnt = love.graphics.newFont(20)
   gameState = 1
   wave = 1
   score = 0
@@ -90,9 +90,12 @@ end
 
 function love.draw()
   love.graphics.draw(sprites.background, 0, 0)
-  if gameState == 1 then
+  if gameState == 1 and wave == 1 then
     love.graphics.setFont(fnt)
-    love.graphics.print("are you ready? press r key", 100, 100)
+    love.graphics.print("Press R to start", 325, 325)
+  elseif gameState == 1 then
+    love.graphics.setFont(fnt)
+    love.graphics.print("Press R to start the next wave", 250, 325)
   elseif gameState == 2 then
     love.graphics.draw(sprites.player, player.x, player.y, getPlayerMouseAngle(),
     nil, nil, sprites.player:getWidth()/2, sprites.player:getHeight()/2)
